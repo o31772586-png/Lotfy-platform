@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - إدارة المشتركين والطلبات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans p-6">
+
+    <div class="max-w-6xl mx-auto space-y-6">
+        
+        <!-- Header & Quick Stats -->
+        <div class="flex justify-between items-center bg-gray-800 p-6 rounded-2xl border border-gray-700">
+            <div>
+                <h1 class="text-2xl font-bold text-yellow-500">لوحة تحكم المنصة (Admin)</h1>
+                <p class="text-gray-400 text-sm">إدارة طلبات التفعيل للرقم 01066737640</p>
+            </div>
+            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm">معاينة المنصة</a>
+        </div>
+
+        <!-- Dashboard Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700">
+                <span class="text-gray-400 text-sm">إجمالي المشتركين</span>
+                <h3 class="text-3xl font-extrabold text-yellow-400 mt-2">124 طالب</h3>
+            </div>
+            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700">
+                <span class="text-gray-400 text-sm">طلبات تنتظر التفعيل</span>
+                <h3 id="pendingCount" class="text-3xl font-extrabold text-orange-400 mt-2">1</h3>
+            </div>
+            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700">
+                <span class="text-gray-400 text-sm">إجمالي المبيعات هذا الشهر</span>
+                <h3 class="text-3xl font-extrabold text-green-400 mt-2">18,600 ج.م</h3>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden shadow-xl">
+            <div class="p-6 border-b border-gray-700">
+                <h2 class="text-lg font-bold text-yellow-500">طلبات التحويل والإيصالات المعلقة</h2>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-right text-gray-300">
+                    <thead class="bg-gray-700/50 text-gray-400 text-xs uppercase">
+                        <tr>
+                            <th class="p-4">اسم الطالب</th>
+                            <th class="p-4">رقم التحويل</th>
+                            <th class="p-4">رقم ولي الأمر</th>
+                            <th class="p-4">الكورس المطلوب</th>
+                            <th class="p-4">الإيصال</th>
+                            <th class="p-4 text-center">الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable" class="divide-y divide-gray-700 text-sm">
+                        <!-- Sample Pending Row -->
+                        <tr id="row-1">
+                            <td class="p-4 font-bold text-white">أحمد محمد علي</td>
+                            <td class="p-4">01012345678</td>
+                            <td class="p-4">01298765432</td>
+                            <td class="p-4"><span class="bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-2 py-1 rounded">التفاضل والتكامل</span></td>
+                            <td class="p-4">
+                                <button onclick="alert('جارٍ عرض صورة الإيصال...')" class="text-yellow-400 underline hover:text-yellow-300">عرض الإيصال 📄</button>
+                            </td>
+                            <td class="p-4 text-center space-x-2 space-x-reverse">
+                                <button onclick="approveOrder('row-1')" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-xs font-bold">تفعيل الاشتراك</button>
+                                <button onclick="rejectOrder('row-1')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-xs font-bold">رفض</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function approveOrder(rowId) {
+            document.getElementById(rowId).remove();
+            let count = document.getElementById('pendingCount');
+            count.innerText = Math.max(0, parseInt(count.innerText) - 1);
+            alert('تم تفعيل الكورس للطالب بنجاح وإرسال رسالة التأكيد!');
+        }
+
+        function rejectOrder(rowId) {
+            if(confirm('هل أنت تأكد من رفض هذا الطلب؟')) {
+                document.getElementById(rowId).remove();
+                let count = document.getElementById('pendingCount');
+                count.innerText = Math.max(0, parseInt(count.innerText) - 1);
+            }
+        }
+    </script>
+</body>
+</html>

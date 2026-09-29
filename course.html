@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الرياضيات - كورس التفاضل والتكامل</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <!-- Header -->
+    <header class="bg-gray-800 border-b border-gray-700 py-4 px-8 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-yellow-500">كورس التفاضل والتكامل - الصف الثالث الثانوي</h1>
+        <a href="index.html" class="text-gray-400 hover:text-white transition">الرجوع للرئيسية</a>
+    </header>
+
+    <!-- Main Content Layout -->
+    <div class="max-w-7xl mx-auto py-8 px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Video Player & Lesson Details (Main Area) -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Video Container -->
+            <div class="bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800 aspect-video relative flex items-center justify-center">
+                <!-- مشغل فيديو YouTube أو سيرفر خاص مع منع التنزيل -->
+                <iframe id="videoPlayer" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="المحاضرة" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- Title & Info -->
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                <h2 id="lessonTitle" class="text-2xl font-bold text-yellow-400 mb-2">المحاضرة الأولى: اشتقاق الدوال المثلثية</h2>
+                <p class="text-gray-400 text-sm mb-4">في هذه المحاضرة سنتناول قواعد الاشتقاق الأساسية وحل تمارين متنوعة من كتاب المعاصر.</p>
+                
+                <!-- Action Buttons / Attachments -->
+                <div class="flex flex-wrap gap-4 pt-4 border-t border-gray-700">
+                    <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+                        📄 تحميل ملزمة المحاضرة (PDF)
+                    </a>
+                    <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-4 py-2 rounded-lg text-sm">
+                        📝 دخول الامتحان التقييمي
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Playlist & Lessons Sidebar -->
+        <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 h-fit space-y-4">
+            <h3 class="text-lg font-bold text-yellow-500 border-b border-gray-700 pb-3">محتويات الكورس (المحاضرات)</h3>
+            
+            <div class="space-y-3">
+                <!-- Lesson Item 1 (Active) -->
+                <div onclick="changeLesson('المحاضرة الأولى: اشتقاق الدوال المثلثية', 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ')" class="p-3 bg-gray-700/80 hover:bg-gray-700 rounded-xl cursor-pointer border-r-4 border-yellow-500 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-sm text-white">1. اشتقاق الدوال المثلثية</h4>
+                        <span class="text-xs text-gray-400">المدة: 45 دقيقة</span>
+                    </div>
+                    <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">مكتمل</span>
+                </div>
+
+                <!-- Lesson Item 2 -->
+                <div onclick="changeLesson('المحاضرة الثانية: الاشتقاق الضمني والمشتقات العليا', 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ')" class="p-3 bg-gray-900/50 hover:bg-gray-700 rounded-xl cursor-pointer flex justify-between items-center transition">
+                    <div>
+                        <h4 class="font-bold text-sm text-gray-300">2. الاشتقاق الضمني والمشتقات العليا</h4>
+                        <span class="text-xs text-gray-400">المدة: 50 دقيقة</span>
+                    </div>
+                    <span class="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded">جديد</span>
+                </div>
+
+                <!-- Lesson Item 3 -->
+                <div class="p-3 bg-gray-900/30 rounded-xl flex justify-between items-center opacity-60">
+                    <div>
+                        <h4 class="font-bold text-sm text-gray-400">3. تطبيقات على المشتقات (مغلق)</h4>
+                        <span class="text-xs text-gray-500">تفتح بعد إتمام الامتحان</span>
+                    </div>
+                    <span class="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">🔒 مغلق</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeLesson(title, videoUrl) {
+            document.getElementById('lessonTitle').innerText = title;
+            document.getElementById('videoPlayer').src = videoUrl;
+        }
+    </script>
+</body>
+</html>

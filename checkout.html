@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الاشتراك والدفع</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans py-12 px-4">
+
+    <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700">
+        <h2 class="text-2xl font-bold text-yellow-500 mb-6 text-center">خطوات تأكيد الدفع والاشتراك</h2>
+
+        <!-- Payment Instructions -->
+        <div class="bg-gray-900 p-4 rounded-xl mb-6 border border-yellow-500/30">
+            <p class="text-sm text-gray-300 mb-2">قم بتحويل المبلغ المطلوب عن طريق **Instapay** أو **Vodafone Cash** إلى الرقم التالي:</p>
+            <div class="text-center bg-yellow-500 text-black py-2 rounded-lg font-extrabold text-2xl tracking-wider my-3">
+                01066737640
+            </div>
+            <p class="text-xs text-gray-400 text-center">بعد التحويل، احتفظ بلقطة الشاشة (Screenshot) ورقم العملية لرفعها بالأسفل.</p>
+        </div>
+
+        <!-- Checkout Form -->
+        <form id="paymentForm" class="space-y-4">
+            <div>
+                <label class="block text-sm mb-1 text-gray-300">الاسم بالكامل</label>
+                <input type="text" id="studentName" required class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-yellow-500">
+            </div>
+
+            <div>
+                <label class="block text-sm mb-1 text-gray-300">رقم الموبايل (المُحوَّل منه)</label>
+                <input type="tel" id="studentPhone" required class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-yellow-500">
+            </div>
+
+            <div>
+                <label class="block text-sm mb-1 text-gray-300">رقم ولي الأمر</label>
+                <input type="tel" id="parentPhone" required class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-yellow-500">
+            </div>
+
+            <div>
+                <label class="block text-sm mb-1 text-gray-300">صورة إيصال التحويل / السكرين شوت</label>
+                <input type="file" id="receiptImg" accept="image/*" required class="w-full p-2 rounded-lg bg-gray-700 border border-gray-600">
+            </div>
+
+            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition text-lg mt-4">إرسال طلب التفعيل</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('تم إرسال طلب الاشتراك بنجاح! سيتم مراجعة إيصال الدفع وتفعيل الكورس في حسابك خلال دقائق.');
+            window.location.href = 'index.html';
+        });
+    </script>
+
+</body>
+</html>
